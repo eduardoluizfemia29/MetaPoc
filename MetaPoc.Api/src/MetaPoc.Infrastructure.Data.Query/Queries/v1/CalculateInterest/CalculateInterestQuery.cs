@@ -4,13 +4,13 @@ namespace MetaPoc.Infrastructure.Data.Query.Queries.v1.CalculateInterest
 {
     public class CalculateInterestQuery : IRequest<CalculateInterestQueryResponse>
     {
-        public CalculateInterestQuery(decimal initialValue, int time)
+        public CalculateInterestQuery(decimal initialValue, int month)
         {
             InitialValue = initialValue;
-            Time = time;
+            Month = month;
         }
 
         public decimal InitialValue { get; set; }
-        public int Time { get; set; }
+        public int Month { get; set; }
     }
 }

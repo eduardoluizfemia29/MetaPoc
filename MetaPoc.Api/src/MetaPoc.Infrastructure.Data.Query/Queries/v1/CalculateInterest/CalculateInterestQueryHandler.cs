@@ -20,13 +20,19 @@ namespace MetaPoc.Infrastructure.Data.Query.Queries.v1.CalculateInterest
 
             if (request == null) return null;
 
-            var fees = await _interestRateQueryRepository.GetInterestRateAsync();
-
-            var calculation = Math.Pow((1 + fees), request.Time);
-
-            var finalValue = Math.Round(request.InitialValue * (decimal)calculation, 2);
+            var finalValue = await ProcessCalculation(request);
 
             return new CalculateInterestQueryResponse(finalValue.ToString());
+        }
+
+        private async Task<decimal> ProcessCalculation(CalculateInterestQuery request)
+        {
+            var fees = await _interestRateQueryRepository.GetInterestRateAsync();
+
+            var calculation = Math.Pow((1 + fees), request.Month);
+
+            var finalValue = Math.Round(request.InitialValue * (decimal)calculation, 2);
+            return finalValue;
         }
     }
 }

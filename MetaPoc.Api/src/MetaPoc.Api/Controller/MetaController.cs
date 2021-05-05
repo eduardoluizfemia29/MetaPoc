@@ -24,9 +24,9 @@ namespace MetaPoc.Api.Controller
         }
 
         [HttpGet("calculateinterest")]
-        public async Task<IActionResult> CalculateInterestAsync(decimal initialValue, int time)
+        public async Task<IActionResult> CalculateInterestAsync(decimal initialValue, int month)
         {
-            return Ok(await _mediator.Send(new CalculateInterestQuery(initialValue, time)).ConfigureAwait(false));
+            return Ok(await _mediator.Send(new CalculateInterestQuery(initialValue, month)).ConfigureAwait(false));
         }
     }
 }
