@@ -2,8 +2,8 @@
 
 namespace MetaPoc.Infrastructure.Data.Query.Interfaces.v1
 {
-    public interface ITaxaJurosQueryRepository
+    public interface IInterestRateQueryRepository
     {
-        Task<double> GetTaxaJuros();
+        Task<double> GetInterestRateAsync();
     }
 }

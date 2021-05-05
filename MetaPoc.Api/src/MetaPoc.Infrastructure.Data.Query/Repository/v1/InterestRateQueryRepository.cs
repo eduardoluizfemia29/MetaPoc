@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace MetaPoc.Infrastructure.Data.Query.Repository.v1
 {
-    public class TaxaJurosQueryRepository : ITaxaJurosQueryRepository
+    public class InterestRateQueryRepository : IInterestRateQueryRepository
     {
-        public async Task<double> GetTaxaJuros()
+        public async Task<double> GetInterestRateAsync()
         {
             return 0.01;
         }

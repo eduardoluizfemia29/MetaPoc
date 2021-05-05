@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using MetaPoc.Infrastructure.Data.Query.Queries.v1.CalculaJuros;
-using MetaPoc.Infrastructure.Data.Query.Queries.v1.TaxaJuros;
+using MetaPoc.Infrastructure.Data.Query.Queries.v1.CalculateInterest;
+using MetaPoc.Infrastructure.Data.Query.Queries.v1.InterestRate;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,16 +17,16 @@ namespace MetaPoc.Api.Controller
             _mediator = mediator;
         }
 
-        [HttpGet("taxaJuros")]
-        public async Task<IActionResult> GetTaxaJurosAsync()
+        [HttpGet("interestrate")]
+        public async Task<IActionResult> GetInterestRateAsync()
         {
-            return Ok(await _mediator.Send(new TaxaJurosQuery()).ConfigureAwait(false));
+            return Ok(await _mediator.Send(new InterestRateQuery()).ConfigureAwait(false));
         }
 
-        [HttpGet("calculaJuros")]
-        public async Task<IActionResult> CalculaJurosAsync(decimal valorInicial, int meses)
+        [HttpGet("calculateinterest")]
+        public async Task<IActionResult> CalculateInterestAsync(decimal initialValue, int time)
         {
-            return Ok(await _mediator.Send(new CalculaJurosQuery(valorInicial, meses)).ConfigureAwait(false));
+            return Ok(await _mediator.Send(new CalculateInterestQuery(initialValue, time)).ConfigureAwait(false));
         }
     }
 }

@@ -70,7 +70,7 @@ namespace MetaPoc.Api.Core.IoC
 
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddTransient<ITaxaJurosQueryRepository, TaxaJurosQueryRepository>();
+            services.AddTransient<IInterestRateQueryRepository, InterestRateQueryRepository>();
             return services;
         }
     }
