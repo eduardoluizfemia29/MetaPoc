@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MetaPoc.Api.Controller
 {
-    [Route("api/v1/juros")]
+    [Route("api/v1/fees")]
     [ApiController]
     public class MetaController : ControllerBase
     {
@@ -20,13 +20,13 @@ namespace MetaPoc.Api.Controller
         [HttpGet("interestrate")]
         public async Task<IActionResult> GetInterestRateAsync()
         {
-            return Ok(await _mediator.Send(new InterestRateQuery()).ConfigureAwait(false));
+            return Ok(await _mediator.Send(new InterestRateQuery()));
         }
 
         [HttpGet("calculateinterest")]
         public async Task<IActionResult> CalculateInterestAsync(decimal initialValue, int month)
         {
-            return Ok(await _mediator.Send(new CalculateInterestQuery(initialValue, month)).ConfigureAwait(false));
+            return Ok(await _mediator.Send(new CalculateInterestQuery(initialValue, month)));
         }
     }
 }
