@@ -17,7 +17,7 @@ namespace MetaPoc.Api.Controller
         }
 
         [HttpGet("showmethecode")]
-        public async Task<IActionResult> GetCodeAsynnc()
+        public async Task<IActionResult> GetCodeAsync()
         {
             return Ok(await _mediator.Send(new CodeQuery()));
         }
