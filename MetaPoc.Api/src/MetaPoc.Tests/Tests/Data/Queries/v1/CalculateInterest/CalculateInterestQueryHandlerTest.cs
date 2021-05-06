@@ -3,10 +3,6 @@ using MetaPoc.Infrastructure.Data.Query.Interfaces.v1;
 using MetaPoc.Infrastructure.Data.Query.Queries.v1.CalculateInterest;
 using MetaPoc.Tests.Mocks.Contracts;
 using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
